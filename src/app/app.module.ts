@@ -14,7 +14,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {HeaderModule} from "./shared/components/header/header.module";
 import {ApiInterceptorService} from "./shared/services/api-interceptor.service";
 import {BaseHttpService} from "./shared/services/base-http.service";
-import { ForecastComponent } from './pages/forecast/forecast.component';
+import {ForecastComponent} from './pages/forecast/forecast.component';
 import {ROUTING} from "./shared/routing";
 
 const appRoutes: Routes = [
