@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Roboto Material", sans-serif;
+  background: #f2f2f2;
+
+}
+
+.container {
+  max-width: 1200px;
+  padding: 40px 0;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  box-shadow: none !important;
+  margin-top: 20px;
+}
+
+tr:hover {
+  background: whitesmoke;
+  &.mat-row {
+    cursor: pointer;
+  }
+}
+
+tr:active {
+  background: #efefef;
+}
+
+.weather {
+  &-content {
+    padding: 0 16px;
+  }
+}

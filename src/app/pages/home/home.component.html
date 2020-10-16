@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="container">
+	<div class="weather">
+		<mat-card>
+			<mat-card-header>
+		        <mat-card-title>Check weather</mat-card-title>
+				<mat-card-subtitle>Select city to check the weather</mat-card-subtitle>
+		    </mat-card-header>
+			<mat-card-content>
+				<div class="weather-content">
+					<div class="weather-select">
+						<mat-form-field appearance="fill">
+						    <mat-label>Select cities</mat-label>
+						    <mat-select [formControl]="form" multiple (selectionChange)="getWeather($event)">
+						        <mat-option *ngFor="let city of cities" [value]="city.id">
+							        {{ city.name }}
+						        </mat-option>
+					        </mat-select>
+						</mat-form-field>
+					</div>
+					<div class="weather-details">
+						<table mat-table [dataSource]="weather" class="mat-elevation-z8" *ngIf="weather.length > 0">
+						  <ng-container matColumnDef="id">
+						    <th mat-header-cell *matHeaderCellDef> ID </th>
+						    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+						  </ng-container>
+						  <ng-container matColumnDef="name">
+						    <th mat-header-cell *matHeaderCellDef> Name </th>
+						    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+						  </ng-container>
+						  <ng-container matColumnDef="main">
+						    <th mat-header-cell *matHeaderCellDef> Temp </th>
+						    <td mat-cell *matCellDef="let element"> {{element.main.temp}} °C </td>
+						  </ng-container>
+						  <ng-container matColumnDef="wind">
+						    <th mat-header-cell *matHeaderCellDef> Wind </th>
+						    <td mat-cell *matCellDef="let element"> {{element.wind.speed}} m/s </td>
+						  </ng-container>
+						  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+						  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDetails(row)"></tr>
+						</table>
+					</div>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
+
+

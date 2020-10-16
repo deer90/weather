@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container">
+	<div class="weather">
+		<mat-card>
+			<mat-card-header>
+		        <mat-card-title><mat-icon aria-hidden="false" (click)="back()">arrow_back</mat-icon> Forecast for {{ name }}</mat-card-title>
+		    </mat-card-header>
+			<mat-card-content>
+				<div class="weather-content">
+					<table mat-table [dataSource]="forecastHourly" class="mat-elevation-z8" *ngIf="forecastHourly.length > 0">
+					  <ng-container matColumnDef="hour">
+					    <th mat-header-cell *matHeaderCellDef> Hour </th>
+					    <td mat-cell *matCellDef="let element"> {{element.hour}} </td>
+					  </ng-container>
+					  <ng-container matColumnDef="temp">
+					    <th mat-header-cell *matHeaderCellDef> Temperature </th>
+					    <td mat-cell *matCellDef="let element"> {{element.temp}} °C</td>
+					  </ng-container>
+					  <ng-container matColumnDef="wind_speed">
+					    <th mat-header-cell *matHeaderCellDef> Wind speed </th>
+					    <td mat-cell *matCellDef="let element"> {{element.wind_speed}} m/s </td>
+					  </ng-container>
+					  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDetails(row)"></tr>
+					</table>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
